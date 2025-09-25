@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        double itemPrice = 0.0;
+        final double SHIP_RATE = 0.02; // 2% of the item price
+        double shipCost = 0.0;
+        double totalCost = 0.0;
+
+        System.out.print("Enter the item price: ");
+        if (in.hasNextDouble()) {
+            itemPrice = in.nextDouble();
+
+            if (itemPrice >= 100.0) {
+                shipCost = 0.0;
+            } else {
+                shipCost = itemPrice * SHIP_RATE;
+            }
+            totalCost = itemPrice + shipCost;
+
+            System.out.printf("Shipping cost: $%.2f\n", shipCost);
+            System.out.printf("Total price: $%.2f\n", totalCost);
+        } else {
+            System.out.println("Invalid input. Please enter a valid number.");
+        }
+    }
+}
